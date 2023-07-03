@@ -1,19 +1,21 @@
 <script>
+import { store } from '../data/store';
+
 export default {
-    props: {
-        pokemonList: Array
+    data() {
+        return { store }
     }
 }
 </script>
 
 <template>
     <div class="container">
-        <div v-for="pokemon in pokemonList" class="card">
-            <img :src="pokemon.imageUrl" class="card-img-top" :alt="pokemon.name">
+        <div v-for="character in store.characters" class="card">
+            <img :src="character.imageUrl" class="card-img-top" :alt="character.name">
             <div class="card-body">
-                <h5 class="card-title">{{ pokemon.name }}</h5>
+                <h5 class="card-title">{{ character.name }}</h5>
                 <p class="card-text">
-                    Type : {{ pokemon.type1 }}
+                    Type : {{ character.type1 }}
                 </p>
             </div>
         </div>

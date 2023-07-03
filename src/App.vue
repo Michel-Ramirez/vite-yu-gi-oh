@@ -3,18 +3,20 @@
 import AppMain from './components/AppMain.vue';
 import axios from 'axios';
 
+//Importo store dove sono contenuti i miei dati provenienti dal API
+import { store } from './data/store';
+
 const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=Electric&sort[number]=desc';
 
 export default {
   components: { AppMain },
   data() {
     return {
-      characters: []
     }
   },
   created() {
     axios.get(endpoint).then(res => {
-      this.characters = res.data.docs;
+      store.characters = res.data.docs;
     });
   }
 };
@@ -22,7 +24,7 @@ export default {
 
 <template>
   <h1 class="text-center margin-0-auto mt-5">POKEDESC</h1>
-  <AppMain :pokemonList="characters" />
+  <AppMain />
 </template>
 
 <style lang="scss">
