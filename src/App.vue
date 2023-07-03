@@ -21,10 +21,11 @@ export default {
 </script>
 
 <template>
-  <h1>POKEDESC</h1>
-  <AppMain />
+  <h1 class="text-center margin-0-auto mt-5">POKEDESC</h1>
+  <AppMain :pokemonList="characters" />
 </template>
 
 <style lang="scss">
-@use './assets/style.scss'
+@use './assets/style.scss';
+@use '../node_modules/bootstrap/scss/bootstrap.scss';
 </style>
