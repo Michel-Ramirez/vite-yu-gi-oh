@@ -1,8 +1,16 @@
 <script>
 import CardComponent from './CardComponent.vue';
 import AppHeader from './AppHeader.vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 export default {
-    components: { AppHeader, CardComponent }
+    emits: ['abilitySearch'],
+    components: { AppHeader, CardComponent },
+    methods: {
+        // metodo che riceve il dato dal emit inviato sa AppHeader e a sua volto la trasmette ad App.vue
+        onSelect(data) {
+            this.$emit('abilitySearch', data)
+        }
+    }
 }
 </script>
 
@@ -13,10 +21,12 @@ export default {
                 <div class="notch">
                     <div class="camera-sensor"></div>
                 </div>
-                <AppHeader />
+                <AppHeader @selectChange="onSelect" />
                 <CardComponent />
+                <div class="to-top">
+                    <font-awesome-icon :icon="['fas', 'angles-up']" />
+                </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -46,11 +56,13 @@ export default {
 
 .notch {
     width: 100px;
-    height: 50px;
     background-color: rgb(0, 0, 0);
     border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: end;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .camera-sensor {

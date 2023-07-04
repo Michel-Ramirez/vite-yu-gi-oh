@@ -8,12 +8,20 @@ import axios from 'axios';
 import { store } from './data/store';
 
 // importo API in costante endpoint
-const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=Electric&sort[number]=desc';
+const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=1048';
 
 export default {
   components: { AppMain },
   data() {
     return {
+      searchAbility: '',
+    }
+  },
+  methods: {
+    // metodo che riceve il dato dal emit
+    search(data) {
+      this.searchAbility = data
+
     }
   },
   //utilizzo axios per importare i dati
@@ -26,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <AppMain />
+  <AppMain @abilitySearch="search" />
 </template>
 
 <style lang="scss">
