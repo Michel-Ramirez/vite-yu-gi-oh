@@ -1,6 +1,7 @@
 <script>
 
 import AppMain from './components/AppMain.vue';
+
 import axios from 'axios';
 
 //Importo store dove sono contenuti i miei dati provenienti dal API

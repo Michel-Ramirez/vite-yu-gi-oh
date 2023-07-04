@@ -9,13 +9,13 @@ export default {
 
 <template>
     <div class="cards">
-        <div v-for="character in store.characters" class="card">
-            <img :src="character.imageUrl" class="card-img-top" :alt="character.name">
+        <div v-for="char in store.characters" class="card">
+            <img :src="char.imageUrl" class="card-img-top" :alt="char.name">
             <div class="card-body">
-                <h5 class="card-title">{{ character.name }}</h5>
-                <p class="number">N° : {{ character.number }}</p>
+                <h5 class="card-title">{{ char.name }}</h5>
+                <p class="number">N° : {{ char.number }}</p>
                 <p class="card-text">
-                    Tipo : {{ character.type1 }}
+                    Tipo : {{ char.type1 }}
                 </p>
             </div>
         </div>

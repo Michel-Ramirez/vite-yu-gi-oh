@@ -1,10 +1,8 @@
 <script>
 import CardComponent from './CardComponent.vue';
+import AppHeader from './AppHeader.vue';
 export default {
-    data() {
-        return
-    },
-    components: { CardComponent }
+    components: { AppHeader, CardComponent }
 }
 </script>
 
@@ -15,7 +13,7 @@ export default {
                 <div class="notch">
                     <div class="camera-sensor"></div>
                 </div>
-                <h1 class="text-center margin-0-auto my-3">Pokédex</h1>
+                <AppHeader />
                 <CardComponent />
             </div>
 
