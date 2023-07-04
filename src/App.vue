@@ -25,7 +25,6 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-center margin-0-auto mt-5">POKEDESC</h1>
   <AppMain />
 </template>
 

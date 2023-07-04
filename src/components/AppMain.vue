@@ -1,42 +1,66 @@
 <script>
-import { store } from '../data/store';
-
+import CardComponent from './CardComponent.vue';
 export default {
     data() {
-        return { store }
-    }
+        return
+    },
+    components: { CardComponent }
 }
 </script>
 
 <template>
-    <div class="container">
-        <div v-for="character in store.characters" class="card">
-            <img :src="character.imageUrl" class="card-img-top" :alt="character.name">
-            <div class="card-body">
-                <h5 class="card-title">{{ character.name }}</h5>
-                <p class="card-text">
-                    Type : {{ character.type1 }}
-                </p>
+    <div class="container mt-5">
+        <div class="pokedex-body">
+            <div class="pokedex-border-screen">
+                <div class="notch">
+                    <div class="camera-sensor"></div>
+                </div>
+                <h1 class="text-center margin-0-auto my-3">Pokédex</h1>
+                <CardComponent />
             </div>
+
         </div>
     </div>
 </template>
 
 <style scoped>
 .container {
+    max-width: 820px;
+}
+
+.pokedex-body {
+    border: 15px solid red;
+    border-radius: 20px;
+}
+
+.pokedex-border-screen {
+    border: 5px solid black;
+    height: 1100px;
+    overflow: auto;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
 }
 
-.card {
-    margin: 0 auto;
-    width: 18rem;
-    margin: 10px;
+::-webkit-scrollbar {
+    width: 0px;
 }
 
-.card-img-top {
-    height: 200px;
-    width: 250px;
-    object-fit: contain;
+.notch {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.camera-sensor {
+    margin: 5px 0;
+    margin-right: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgba(30, 29, 29, 0.657);
 }
 </style>
